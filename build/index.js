@@ -18200,7 +18200,7 @@ const RuneContainer = props => {
   const spine = topConsonant && bottomConsonant;
   return /*#__PURE__*/jsxRuntime.exports.jsxs("div", {
     className: classNames('rune-pad', {
-      'rune-pad--focused': isFocused || isHovered
+      'rune-pad--focused': isFocused || isHovered || selectedKeys.size == 0
     }),
     ...$3ef42575df84b30b$export$9d1611c77c2fe928(focusProps, hoverProps),
     children: [/*#__PURE__*/jsxRuntime.exports.jsxs("ul", { ...listBoxProps,

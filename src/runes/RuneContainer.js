@@ -91,7 +91,7 @@ export const RuneContainer = (props) => {
         classNames(
           'rune-pad',
           {
-            'rune-pad--focused': isFocused || isHovered
+            'rune-pad--focused': isFocused || isHovered || (selectedKeys.size == 0)
           }
         )
       }
