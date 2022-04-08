@@ -18318,11 +18318,7 @@ const EDIT_RUNE = (index, rune) => runes => {
 };
 
 const App = () => {
-  const [words, setWords] = react.exports.useState( // () => [new Set()]
-  () => {
-    let x = JSON.parse('[[["VTL","VTR","CTT","VL","CBB","CBR","VBL","VBR"],["CTT","CBB"],["CTT","CBL","CBR"]],[["CTT","CBL","VBL","VBR","CBR","CBB"],["CTT","CTR","CBL","CBB"]],[["VTL","VTR","CTL","CTR","VL","CBB","VBL"]],[["VTL","VTR","CTR","VL","CBL","VBL","CBB","VBR"],["VTL","CTT","VTR","CTR","CBR"],["CTT","CTR","CBL","CBB"]],[["VTL","CTL","VL","CBL","CBR","SWAP"]],[["VTL","VTR"]],[["VTL","CTL","VL","CBL","CBR","VBR"],["VTR","CTT","CBR"]],[["VTL","VTR","CTR","VL","CBL","VBL","CBB","VBR"]]]');
-    return x.map(x => x.map(x => new Set(x)));
-  });
+  const [words, setWords] = react.exports.useState(() => [[new Set()]]);
   const onRuneChange = react.exports.useCallback((wordIndex, runeIndex) => rune => setWords(EDIT_WORD(wordIndex, EDIT_RUNE(runeIndex, rune))), [setWords]);
   const onRuneInsert = react.exports.useCallback((wordIndex, runeIndex) => () => setWords(EDIT_WORD(wordIndex, runes => [...runes.slice(0, runeIndex + 1), new Set(), ...runes.slice(runeIndex + 1)])), [setWords]);
   const onAddWord = react.exports.useCallback(wordIndex => () => setWords(words => [...words.slice(0, wordIndex + 1), [new Set()], ...words.slice(wordIndex + 1)]), [setWords]);

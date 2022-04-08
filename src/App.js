@@ -18,15 +18,9 @@ const EDIT_RUNE = (index, rune) => runes => {
 
 export const App = () => {
   const [words, setWords] = useState(
-    // () => [new Set()]
-    () => {
-      let x = JSON.parse('[[["VTL","VTR","CTT","VL","CBB","CBR","VBL","VBR"],["CTT","CBB"],["CTT","CBL","CBR"]],[["CTT","CBL","VBL","VBR","CBR","CBB"],["CTT","CTR","CBL","CBB"]],[["VTL","VTR","CTL","CTR","VL","CBB","VBL"]],[["VTL","VTR","CTR","VL","CBL","VBL","CBB","VBR"],["VTL","CTT","VTR","CTR","CBR"],["CTT","CTR","CBL","CBB"]],[["VTL","CTL","VL","CBL","CBR","SWAP"]],[["VTL","VTR"]],[["VTL","CTL","VL","CBL","CBR","VBR"],["VTR","CTT","CBR"]],[["VTL","VTR","CTR","VL","CBL","VBL","CBB","VBR"]]]');
-      return x.map(
-        x => x.map(
-          x => new Set(x)
-        )
-      );
-    }
+    () => [
+      [new Set()]
+    ]
   );
 
   const onRuneChange = useCallback(
