@@ -1,0 +1,84 @@
+@mixin spacing($number) {
+  @at-root &--spacing-#{$number} {
+    & > .system-layout-row__item:not(:last-child) { margin-right: #{$number}px; }
+    &.system-layout-row {
+      &--wrap {
+        width: calc(100% + #{$number}px);
+        margin-top: -#{$number}px;
+        margin-left: -#{$number}px;
+      }
+      &--wrap > .system-layout-row__item {
+        margin-top: #{$number}px;
+        margin-left: #{$number}px;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.system-layout-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+
+    &--flexible {
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--wrap {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    pointer-events: none;
+    > * {
+      pointer-events: all;
+    }
+  }
+
+  & > &__item {
+    display: flex;
+
+    &--layout {
+      &-row { flex-direction: row; }
+      &-column { flex-direction: column; }
+    }
+
+    &--flexible {
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    &--inflexible {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    &--right {
+      margin-left: auto !important;
+    }
+
+    &--bottom {
+      margin-top: auto !important;
+    }
+  }
+
+  @include spacing(0);
+  @include spacing(4);
+  @include spacing(8);
+  @include spacing(16);
+  @include spacing(24);
+  @include spacing(32);
+  @include spacing(40);
+  @include spacing(48);
+  @include spacing(56);
+  @include spacing(64);
+}
