@@ -18191,7 +18191,6 @@ const RuneContainer = props => {
   } = $6179b936705e76d3$export$ae780daf29e6d456({});
   const {
     isFocused,
-    isFocusVisible,
     focusProps
   } = $f7dceffc5ad7768b$export$4e328f61c538687f({
     within: true
@@ -18201,7 +18200,7 @@ const RuneContainer = props => {
   const spine = topConsonant && bottomConsonant;
   return /*#__PURE__*/jsxRuntime.exports.jsxs("div", {
     className: classNames('rune-pad', {
-      'rune-pad--focused': isFocused && isFocusVisible || isHovered
+      'rune-pad--focused': isFocused || isHovered
     }),
     ...$3ef42575df84b30b$export$9d1611c77c2fe928(focusProps, hoverProps),
     children: [/*#__PURE__*/jsxRuntime.exports.jsxs("ul", { ...listBoxProps,

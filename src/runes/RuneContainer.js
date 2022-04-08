@@ -70,7 +70,6 @@ export const RuneContainer = (props) => {
 
   const {
     isFocused,
-    isFocusVisible,
     focusProps
   } = useFocusRing({ within: true });
 
@@ -92,7 +91,7 @@ export const RuneContainer = (props) => {
         classNames(
           'rune-pad',
           {
-            'rune-pad--focused': (isFocused && isFocusVisible) || isHovered
+            'rune-pad--focused': isFocused || isHovered
           }
         )
       }
