@@ -73,17 +73,16 @@ export const RuneContainer = (props) => {
     focusProps
   } = useFocusRing({ within: true });
 
-  const topConsonant = (
+  const hasTopConsonant = (
     selectedKeys.has(RUNE_KEY.CTL)
     || selectedKeys.has(RUNE_KEY.CTT)
     || selectedKeys.has(RUNE_KEY.CTR)
   );
-  const bottomConsonant = (
-    selectedKeys.has(RUNE_KEY.CBL)
-    || selectedKeys.has(RUNE_KEY.CBB)
-    || selectedKeys.has(RUNE_KEY.CBR)
+  const hasTopSpine = selectedKeys.has(RUNE_KEY.CTT);
+  const hasBottomSpine = selectedKeys.has(RUNE_KEY.CBB);
+  const showSpine = hasTopSpine || (
+    hasTopConsonant && hasBottomSpine
   );
-  const spine = topConsonant && bottomConsonant;
 
   return (
     <div
@@ -102,7 +101,7 @@ export const RuneContainer = (props) => {
         ref={ref}
         className={'rune-pad__list'}
       >
-        {spine && (
+        {showSpine && (
           <div className={'rune-pad__line rune-pad__line--spine'} />
         )}
         {[...state.collection].map((item) => (
