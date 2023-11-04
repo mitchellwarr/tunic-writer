@@ -18195,9 +18195,10 @@ const RuneContainer = props => {
   } = $f7dceffc5ad7768b$export$4e328f61c538687f({
     within: true
   });
-  const topConsonant = selectedKeys.has(RUNE_KEY.CTL) || selectedKeys.has(RUNE_KEY.CTT) || selectedKeys.has(RUNE_KEY.CTR);
-  const bottomConsonant = selectedKeys.has(RUNE_KEY.CBL) || selectedKeys.has(RUNE_KEY.CBB) || selectedKeys.has(RUNE_KEY.CBR);
-  const spine = topConsonant && bottomConsonant;
+  const hasTopConsonant = selectedKeys.has(RUNE_KEY.CTL) || selectedKeys.has(RUNE_KEY.CTT) || selectedKeys.has(RUNE_KEY.CTR);
+  const hasTopSpine = selectedKeys.has(RUNE_KEY.CTT);
+  const hasBottomSpine = selectedKeys.has(RUNE_KEY.CBB);
+  const showSpine = hasTopSpine || hasTopConsonant && hasBottomSpine;
   return /*#__PURE__*/jsxRuntime.exports.jsxs("div", {
     className: classNames('rune-pad', {
       'rune-pad--focused': isFocused || isHovered || selectedKeys.size == 0
@@ -18206,7 +18207,7 @@ const RuneContainer = props => {
     children: [/*#__PURE__*/jsxRuntime.exports.jsxs("ul", { ...listBoxProps,
       ref: ref,
       className: 'rune-pad__list',
-      children: [spine && /*#__PURE__*/jsxRuntime.exports.jsx("div", {
+      children: [showSpine && /*#__PURE__*/jsxRuntime.exports.jsx("div", {
         className: 'rune-pad__line rune-pad__line--spine'
       }), [...state.collection].map(item => /*#__PURE__*/jsxRuntime.exports.jsx(RuneLine, {
         item: item,

@@ -37,7 +37,7 @@
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.24.1",
     "eslint-plugin-react": "^7.24.0",
-    "node-sass": "^6.0.1",
+    "node-sass": "^9.0.0",
     "rollup": "^2.56.3",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-includepaths": "^0.2.4",
